@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from formulas.models import Dish, DishIngredientWeight, Ingredient
+from dishes.models import Dish, DishIngredientWeight, Ingredient
 
 
 class DishIngredientWeightSerializer(serializers.ModelSerializer):
@@ -28,6 +28,7 @@ class DishSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dish
-        fields = ('id', 'name', 'ingredients')
+        fields = ('id', 'name', 'ingredients',
+                  'description', 'category', 'tags')
 
         depth = 1

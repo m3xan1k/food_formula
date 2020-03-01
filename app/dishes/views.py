@@ -1,6 +1,6 @@
 from rest_framework.viewsets import generics
-from formulas.models import Dish, Ingredient, DishIngredientWeight
-from formulas.serializers import (
+from dishes.models import Dish, Ingredient, DishIngredientWeight
+from dishes.serializers import (
     DishSerializer,
     IngredientSerializer,
     DishIngredientWeightSerializer,

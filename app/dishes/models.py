@@ -29,7 +29,9 @@ class Dish(models.Model):
         null=True,
         through=DishIngredientWeight,
     )
-    description = models.TextField()
+    description = models.TextField(blank=True)
+    category = models.ForeignKey('Category', related_name='dishes', on_delete=models.SET_NULL, null=True)
+    tags = models.ManyToManyField('Tag', related_name='dishes', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "dishes"
