@@ -1,0 +1,10 @@
+Backend:
+    - [ ] RichTextField for dish description
+    - [ ] Possibility to add images
+
+Frontend:
+    - [ ] ListView
+    - [ ] DetailView
+    - [ ] CreateView
+    - [ ] UpdateView
+    - [ ] DeleteView
