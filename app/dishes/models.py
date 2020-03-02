@@ -13,7 +13,7 @@ class DishIngredientWeight(models.Model):
         return f"<DishIngredientWeight: {self.dish.name}, {self.ingredient.name}>"
 
     dish = models.ForeignKey("Dish", on_delete=models.CASCADE)
-    ingredient = models.ForeignKey("Ingredient", related_name='weight', on_delete=models.CASCADE)
+    ingredient = models.ForeignKey("Ingredient", on_delete=models.CASCADE)
     weight = models.PositiveIntegerField()
 
 

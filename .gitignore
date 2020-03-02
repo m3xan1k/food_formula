@@ -123,4 +123,5 @@ dmypy.json
 Pipfile
 Pipfile.lock
 .vscode/
-app/dishes/migrations/
+migrations/
+node_modules/

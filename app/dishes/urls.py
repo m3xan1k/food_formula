@@ -2,5 +2,5 @@ from django.urls import path
 from dishes.views import DishListView
 
 urlpatterns = [
-    path('dish/', DishListView.as_view()),
+    path('dishes/dish/', DishListView.as_view()),
 ]
