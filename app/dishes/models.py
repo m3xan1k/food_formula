@@ -1,4 +1,7 @@
+from transliterate import translit
+
 from django.db import models
+from django.utils.text import slugify
 
 
 class Ingredient(models.Model):
@@ -32,6 +35,11 @@ class Dish(models.Model):
     description = models.TextField(blank=True)
     category = models.ForeignKey('Category', related_name='dishes', on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField('Tag', related_name='dishes', null=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(translit(self.name.lower(), 'ru', reversed=True))
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = "dishes"
