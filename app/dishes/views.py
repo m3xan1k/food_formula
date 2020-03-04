@@ -1,9 +1,12 @@
 from rest_framework.viewsets import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from dishes.models import Dish, Ingredient, DishIngredientWeight
+from dishes.models import Dish, Ingredient, DishIngredientWeight, Category, Tag
 from dishes.serializers import (
     DishFullSerializer,
+    IngredientSerializer,
+    CategorySerializer,
+    TagSerializer,
 )
 
 
@@ -32,3 +35,18 @@ class DishView(APIView):
             instance = instance[0]
         serializer = DishFullSerializer(instance)
         return Response(serializer.data)
+
+
+class IngredientListCreateView(generics.ListCreateAPIView):
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.all()
+
+
+class CategoryListCreateView(generics.ListCreateAPIView):
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
+
+
+class TagListCreateView(generics.ListCreateAPIView):
+    serializer_class = TagSerializer
+    queryset = Tag.objects.all()

@@ -1,16 +1,32 @@
 from rest_framework import serializers
-from dishes.models import Dish, DishIngredientWeight, Ingredient
+from dishes.models import Dish, DishIngredientWeight, Ingredient, Category, Tag
 
 
 class IngredientNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ('name')
+        fields = ('name', )
+
+
+class IngredientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingredient
+        fields = ('id', 'name')
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'name')
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('id', 'name')
 
 
 class DishIngredientWeightSerializer(serializers.ModelSerializer):
-    # ingredient = IngredientNameSerializer
-
     class Meta:
         model = DishIngredientWeight
         fields = ('id', 'weight', 'ingredient')
