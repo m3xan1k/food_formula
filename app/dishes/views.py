@@ -11,6 +11,8 @@ from dishes.serializers import (
 
 
 class DishListView(generics.ListAPIView):
+    name = 'dish-list'
+
     queryset = (
         Dish.objects.prefetch_related(
             'dishingredientweight_set__ingredient',
@@ -22,6 +24,8 @@ class DishListView(generics.ListAPIView):
 
 
 class DishView(APIView):
+    name = 'dish-view'
+
     def get(self, request, slug: str):
         instance = (
             Dish.objects
@@ -38,15 +42,18 @@ class DishView(APIView):
 
 
 class IngredientListCreateView(generics.ListCreateAPIView):
+    name = 'ingredient-list=create'
     serializer_class = IngredientSerializer
     queryset = Ingredient.objects.all()
 
 
 class CategoryListCreateView(generics.ListCreateAPIView):
+    name = 'category-list=create'
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
 
 class TagListCreateView(generics.ListCreateAPIView):
+    name = 'tag-list=create'
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
