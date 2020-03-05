@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'dishes',
-    'frontend',
     'debug_toolbar',
 ]
 

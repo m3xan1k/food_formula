@@ -46,5 +46,4 @@ class DishFullSerializer(serializers.ModelSerializer):
         model = Dish
         fields = ('id', 'name', 'description',
                   'category', 'tags', 'dishingredientweight_set')
-
         depth = 1
